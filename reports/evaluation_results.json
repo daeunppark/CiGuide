@@ -1,0 +1,266 @@
+{
+  "trials": 10000,
+  "seed": 6903,
+  "metrics": {
+    "trials": 10000,
+    "choice_correctness_success_probability": 1.0,
+    "target_inclusion_probability": 1.0,
+    "exact_identification_probability": 0.3928,
+    "target_in_top_rank_probability": 1.0,
+    "unique_top_rank_probability": 0.3928,
+    "tie_adjusted_top1_probability": 0.6625333333333341,
+    "expected_uniform_pick_success_probability": 0.6625333333333341,
+    "mean_questions": 4.8455,
+    "mean_candidates": 1.8104
+  },
+  "per_scheme": {
+    "AES-CBC": {
+      "trials": 2032,
+      "choice_correctness_success_probability": 1.0,
+      "target_inclusion_probability": 1.0,
+      "exact_identification_probability": 0.0,
+      "target_in_top_rank_probability": 1.0,
+      "unique_top_rank_probability": 0.0,
+      "tie_adjusted_top1_probability": 0.3333333333333368,
+      "expected_uniform_pick_success_probability": 0.3333333333333368,
+      "mean_questions": 8.0,
+      "mean_candidates": 3.0
+    },
+    "AES-CBC + HMAC-SHA256": {
+      "trials": 2042,
+      "choice_correctness_success_probability": 1.0,
+      "target_inclusion_probability": 1.0,
+      "exact_identification_probability": 0.0,
+      "target_in_top_rank_probability": 1.0,
+      "unique_top_rank_probability": 0.0,
+      "tie_adjusted_top1_probability": 0.5,
+      "expected_uniform_pick_success_probability": 0.5,
+      "mean_questions": 8.0,
+      "mean_candidates": 2.0
+    },
+    "AES-CBC + HMAC-SHA256 + Timestamping": {
+      "trials": 1983,
+      "choice_correctness_success_probability": 1.0,
+      "target_inclusion_probability": 1.0,
+      "exact_identification_probability": 1.0,
+      "target_in_top_rank_probability": 1.0,
+      "unique_top_rank_probability": 1.0,
+      "tie_adjusted_top1_probability": 1.0,
+      "expected_uniform_pick_success_probability": 1.0,
+      "mean_questions": 1.0,
+      "mean_candidates": 1.0
+    },
+    "AES-GCM": {
+      "trials": 1945,
+      "choice_correctness_success_probability": 1.0,
+      "target_inclusion_probability": 1.0,
+      "exact_identification_probability": 1.0,
+      "target_in_top_rank_probability": 1.0,
+      "unique_top_rank_probability": 1.0,
+      "tie_adjusted_top1_probability": 1.0,
+      "expected_uniform_pick_success_probability": 1.0,
+      "mean_questions": 2.0,
+      "mean_candidates": 1.0
+    },
+    "AES-CCM": {
+      "trials": 1998,
+      "choice_correctness_success_probability": 1.0,
+      "target_inclusion_probability": 1.0,
+      "exact_identification_probability": 0.0,
+      "target_in_top_rank_probability": 1.0,
+      "unique_top_rank_probability": 0.0,
+      "tie_adjusted_top1_probability": 0.5,
+      "expected_uniform_pick_success_probability": 0.5,
+      "mean_questions": 5.0,
+      "mean_candidates": 2.0
+    }
+  },
+  "expected_actual_cases": [
+    {
+      "expected": "AES-CBC",
+      "path": [
+        {
+          "id": "Q2",
+          "answer": "no"
+        },
+        {
+          "id": "Q3",
+          "answer": "no"
+        },
+        {
+          "id": "Q7",
+          "answer": "no"
+        },
+        {
+          "id": "Q1",
+          "answer": "no"
+        },
+        {
+          "id": "Q6",
+          "answer": "yes"
+        },
+        {
+          "id": "Q8",
+          "answer": "yes"
+        },
+        {
+          "id": "R1",
+          "answer": "no"
+        },
+        {
+          "id": "R3",
+          "answer": "no"
+        }
+      ],
+      "actual": [
+        {
+          "scheme": "AES-CBC",
+          "rank": 1,
+          "score": 0
+        },
+        {
+          "scheme": "AES-CBC + HMAC-SHA256",
+          "rank": 1,
+          "score": 0
+        },
+        {
+          "scheme": "AES-GCM",
+          "rank": 1,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "expected": "AES-CBC + HMAC-SHA256",
+      "path": [
+        {
+          "id": "Q2",
+          "answer": "no"
+        },
+        {
+          "id": "Q3",
+          "answer": "no"
+        },
+        {
+          "id": "Q7",
+          "answer": "no"
+        },
+        {
+          "id": "Q1",
+          "answer": "yes"
+        },
+        {
+          "id": "Q6",
+          "answer": "yes"
+        },
+        {
+          "id": "Q8",
+          "answer": "yes"
+        },
+        {
+          "id": "R1",
+          "answer": "no"
+        },
+        {
+          "id": "R3",
+          "answer": "no"
+        }
+      ],
+      "actual": [
+        {
+          "scheme": "AES-CBC + HMAC-SHA256",
+          "rank": 1,
+          "score": 0
+        },
+        {
+          "scheme": "AES-GCM",
+          "rank": 1,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "expected": "AES-CBC + HMAC-SHA256 + Timestamping",
+      "path": [
+        {
+          "id": "Q2",
+          "answer": "yes"
+        }
+      ],
+      "actual": [
+        {
+          "scheme": "AES-CBC + HMAC-SHA256 + Timestamping",
+          "rank": 1,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "expected": "AES-GCM",
+      "path": [
+        {
+          "id": "Q2",
+          "answer": "no"
+        },
+        {
+          "id": "Q3",
+          "answer": "yes"
+        }
+      ],
+      "actual": [
+        {
+          "scheme": "AES-GCM",
+          "rank": 1,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "expected": "AES-CCM",
+      "path": [
+        {
+          "id": "Q2",
+          "answer": "no"
+        },
+        {
+          "id": "Q3",
+          "answer": "no"
+        },
+        {
+          "id": "Q7",
+          "answer": "yes"
+        },
+        {
+          "id": "Q6",
+          "answer": "no"
+        },
+        {
+          "id": "R3",
+          "answer": "no"
+        }
+      ],
+      "actual": [
+        {
+          "scheme": "AES-GCM",
+          "rank": 1,
+          "score": 0
+        },
+        {
+          "scheme": "AES-CCM",
+          "rank": 1,
+          "score": 0
+        }
+      ]
+    }
+  ],
+  "random_single_scheme_baseline": 0.2,
+  "correctness_definition": "Success means the randomly selected target appears anywhere in the returned list, per the user-approved rule. Rank is not part of this primary metric. Exact identification and top-rank metrics are secondary.",
+  "protocol": "Uniform random target; requirement and preference answers consistently reflect target table properties; no uncertainty. Ranking preserves eligible candidates.",
+  "limitations": [
+    "Inclusion can reach 100% with many candidates; it is not unique identification.",
+    "A 20% random-single-choice baseline is not directly comparable to list inclusion.",
+    "Synthetic feature-matched preferences do not measure real user preferences or security.",
+    "A correct target tied for first is not uniquely first; tie-adjusted top-1 randomly selects among tied leaders.",
+    "Storage budgets remain unassessed."
+  ]
+}

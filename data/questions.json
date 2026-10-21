@@ -1,0 +1,44 @@
+[
+  {
+    "id": "Q1",
+    "feature": "security",
+    "question": "Should the receiver be able to tell if someone changed your message?",
+    "example": "You send “Send $10,” but someone changes it to “Send $100” before it arrives. Should the receiver be able to notice that the message was changed?"
+  },
+  {
+    "id": "Q2",
+    "feature": "freshness_check",
+    "question": "Does the receiver need to check if your message was sent recently?",
+    "example": "You send a door-unlock command that should only be accepted for 30 seconds. Should the receiver check when it was sent and reject it if it is too old?"
+  },
+  {
+    "id": "Q3",
+    "feature": "runtime_efficiency",
+    "question": "Does your application need to encrypt different parts of a file at the same time?",
+    "example": "Encrypting means locking data so that only someone with the secret key can read it. Imagine a large file split into smaller parts. Some methods can lock several parts at once instead of one at a time. Does your application need this ability?"
+  },
+  {
+    "id": "Q4",
+    "feature": "storage_complexity",
+    "question": "Does your application have a limit on the extra space used to store each encrypted message?",
+    "example": "An encrypted message may need extra information, such as a tag that helps detect changes. This takes up storage space. Does your application have a strict limit on that extra space?"
+  },
+  {
+    "id": "Q6",
+    "feature": "message_length_required_in_advance",
+    "question": "Does your application need to start encrypting before it knows the full message size?",
+    "example": "Your application receives data a little at a time and does not yet know how much will arrive. Does it need to start encrypting before all the data arrives?"
+  },
+  {
+    "id": "Q7",
+    "feature": "integrated_authentication",
+    "question": "Would you like one method that both locks your message and checks if someone changed it?",
+    "example": "Think of sending a locked box with a seal. You want one method to lock the box and help the receiver notice if someone changed what was sent. Would you prefer one method that handles both jobs?"
+  },
+  {
+    "id": "Q8",
+    "feature": "freshness_check",
+    "question": "If you do not need to check when a message was sent, would you prefer to skip that step?",
+    "example": "Your application does not care when a message was sent. Adding a timestamp means storing and checking the time too. Would you prefer to leave out that extra step?"
+  }
+]
