@@ -8,7 +8,7 @@ NYU CS6903/4783 Project 1.3 — an interactive guide to choosing symmetric encry
 
 For offline use, open `index.html` in a browser. No installation or server is required.
 
-## Test
+## Run
 
 Run commands from the repository root. Python 3.9+ and Node.js are required for the automated checks; no additional packages are needed.
 
@@ -31,11 +31,3 @@ For a manual check, open the demo or `index.html`:
 2. Select **I don’t know** twice: the first selection shows an example; the second advances.
 3. Try **Back** and **Restart**, then open the other four tabs.
 4. In **Decision Tree**, expand nodes and try zoom and reset.
-
-## Rebuild
-
-After changing data, Python logic or `src/templates/index.html`, regenerate the site and reports:
-
-```sh
-python3 run.py build
-```
