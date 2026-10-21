@@ -1,35 +1,41 @@
 # CiGuide
-NYU CS6903/4783 Project 1.3 — private-key encryption configuration selection.
 
-## Open the UI
-Double-click **index.html**. No server, installation or network is needed. For GitHub Pages, select Settings → Pages → Deploy from a branch → main → / (root) → Save. The site is published at https://daeunppark.github.io/CiGuide/. All browser data, styles and scripts are embedded, so no backend or path configuration is required. Tabs: **Find My Scheme | Comparison Table | Decision Tree | Evaluation | Sources**.
+NYU CS6903/4783 Project 1.3 — an interactive guide to choosing symmetric encryption configurations.
 
-## Python commands
-From this folder, with Python 3.9+ (standard library only):
+## Demo
+
+[Open CiGuide](https://daeunppark.github.io/CiGuide/)
+
+For offline use, open `index.html` in a browser. No installation or server is required.
+
+## Test
+
+Run commands from the repository root. Python 3.9+ and Node.js are required for the automated checks; no additional packages are needed.
+
 ```sh
-python3 run.py
-python3 run.py tree
-python3 run.py evaluate
-python3 run.py build
+# Python logic, ranking, evaluation and data consistency
 python3 -m unittest discover -s tests -v
+
+# JavaScript interactions and Python/HTML result parity
+node tests/test_web.cjs
+
+# Reproduce the evaluation (10,000 trials, seed 6903)
+python3 run.py evaluate
 ```
-Optional browser-script checks (Node.js required): `node tests/test_web.cjs`.
-`run.py` uses standard input/output. `tree` exports the filtering tree with ranking policy at leaves. `evaluate` writes the current experiment to reports/evaluation_results.json. **build** regenerates the report, exported tree, standalone HTML, comparison table, slide notes, presentation outline and source list together. After changing data or Python logic, use build to synchronize the deliverables. Web layout/text is edited in src/templates/index.html, then built.
 
-## Behavior
-Adaptive filtering selects maximum expected candidate reduction under equal Yes/No probabilities. No means a capability is optional. IDK shows an easy example and asks once more; a second IDK preserves candidates. Q4 storage is inactive without a numeric budget. Follow-up preferences rank multiple remaining candidates: one point per matching Yes, zero for No/IDK, shared ranks for ties. Ranking never removes candidates. Unknown/unasked requirements remain unconfirmed; Storage is omitted from the displayed unassessed list.
+Evaluation results are saved to `reports/evaluation_results.json`. Success means the target scheme appears anywhere in the returned list; it does not require a unique or first-ranked match.
 
-## Evaluation
-The chosen success rule is **target inclusion anywhere in the final ranked list**, regardless of rank or other candidates. Current default: **100.00%**, 10,000 trials, seed 6903. The Evaluation tab shows the primary metric and Expected/Actual cases. Secondary diagnostics remain in the raw JSON only. High inclusion does not prove unique identification or real-user suitability. No user uncertainty is simulated in the base experiment; IDK has separate tests.
+For a manual check, open the demo or `index.html`:
 
-## Source files
-- data/schemes.csv — canonical comparison table
-- data/questions.json — requirement questions and examples
-- data/ranking_questions.json — ranking preferences and examples
-- src/ — Python logic, builder and UI template
-- index.html — generated standalone application
-- reports/ — current evaluation and tree
-- docs/ — current table, slide notes, presentation outline and sources
-- tests/ — automated checks
+1. Answer questions in **Find My Scheme** and confirm results appear.
+2. Select **I don’t know** twice: the first selection shows an example; the second advances.
+3. Try **Back** and **Restart**, then open the other four tabs.
+4. In **Decision Tree**, expand nodes and try zoom and reset.
 
-The application recommends schemes; it does not perform encryption. The finished slide deck and recorded 10–15 minute presentation remain to be created. See docs/sources.md for course page references and standards.
+## Rebuild
+
+After changing data, Python logic or `src/templates/index.html`, regenerate the site and reports:
+
+```sh
+python3 run.py build
+```
