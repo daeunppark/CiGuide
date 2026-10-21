@@ -16,7 +16,7 @@ class Cells(HTMLParser):
   if t=='tr':self.rows.append(self.row);self.row=[]
 class AssetSyncTests(unittest.TestCase):
  @classmethod
- def setUpClass(cls):cls.page=(ROOT/'web/index.html').read_text()
+ def setUpClass(cls):cls.page=(ROOT/'index.html').read_text()
  def test_every_table_cell_matches_csv_in_order(self):
   section=self.page.split('<section id="tableView"')[1].split('</section>')[0]
   cells=Cells();cells.feed(section)

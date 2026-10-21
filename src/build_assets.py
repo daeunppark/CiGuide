@@ -81,7 +81,7 @@ def build():
     template=(ROOT/'src/templates/index.html').read_text()
     page=template.replace('@@STATES@@',script_json(states)).replace('@@RANKING@@',script_json(RANKING)).replace('@@COMPARISON@@',comparison(rows)).replace('@@EVALUATION@@',evaluation(report))
     if '@@' in page:raise ValueError('Unresolved template placeholder')
-    (ROOT/'web/index.html').write_text(page)
+    (ROOT/'index.html').write_text(page)
     docs=ROOT/'docs'
     table='# Implementation Usage Table\n\n|'+ '|'.join(label for _,label in FIELDS)+'|\n|'+ '|'.join('---' for _ in FIELDS)+'|\n'
     for row in rows:table+='|'+'|'.join(row[key] for key,_ in FIELDS)+'|\n'
@@ -131,7 +131,7 @@ Use slide_notes.md for the current exact questions/examples and sources.md for r
 NYU CS6903/4783 Project 1.3 — private-key encryption configuration selection.
 
 ## Open the UI
-Double-click **web/index.html**. No server, installation or network is needed. Upload this file to a static host if desired. Tabs: **Find My Scheme | Comparison Table | Decision Tree | Evaluation | Sources**.
+Double-click **index.html**. No server, installation or network is needed. For GitHub Pages, select Settings → Pages → Deploy from a branch → main → / (root) → Save. The site is published at https://daeunppark.github.io/CiGuide/. All browser data, styles and scripts are embedded, so no backend or path configuration is required. Tabs: **Find My Scheme | Comparison Table | Decision Tree | Evaluation | Sources**.
 
 ## Python commands
 From this folder, with Python 3.9+ (standard library only):
@@ -156,7 +156,7 @@ The chosen success rule is **target inclusion anywhere in the final ranked list*
 - data/questions.json — requirement questions and examples
 - data/ranking_questions.json — ranking preferences and examples
 - src/ — Python logic, builder and UI template
-- web/index.html — generated standalone application
+- index.html — generated standalone application
 - reports/ — current evaluation and tree
 - docs/ — current table, slide notes, presentation outline and sources
 - tests/ — automated checks

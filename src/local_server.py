@@ -65,7 +65,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path not in ('/','/index.html'):
             self.respond(404,'Not found','text/plain');return
-        self.respond(200,(ROOT/'web/index.html').read_text(),'text/html')
+        self.respond(200,(ROOT/'index.html').read_text(),'text/html')
     def do_POST(self):
         if self.path != '/api/state':
             self.respond(404,'{}');return

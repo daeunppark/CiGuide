@@ -1,7 +1,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const path=require('path');
 const projectRoot=path.resolve(__dirname,'..');
-const html=fs.readFileSync(path.join(projectRoot,'web/index.html'),'utf8');
+const html=fs.readFileSync(path.join(projectRoot,'index.html'),'utf8');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const elements={};const context=vm.createContext({document:{getElementById(id){return elements[id]??={textContent:'',innerHTML:'',style:{},addEventListener(){},scrollTo(){},classList:{add(){},remove(){}},setAttribute(k,v){this[k]=v}}}}});
 vm.runInContext(script,context);
